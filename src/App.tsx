@@ -19,9 +19,13 @@ import { GestureRecognizer, FilesetResolver, DrawingUtils } from "@mediapipe/tas
 // --- 动态生成照片列表 (top.jpg + 1.jpg 到 31.jpg) ---
 const TOTAL_NUMBERED_PHOTOS = 31;
 // 修改：将 top.jpg 加入到数组开头
+
+//
+const BASEDOCUMENT = import.meta.env.BASE_URL; // 等于 '/christmas-tree/'
+
 const bodyPhotoPaths = [
-  '/photos/top.jpg',
-  ...Array.from({ length: TOTAL_NUMBERED_PHOTOS }, (_, i) => `/photos/${i + 1}.jpg`)
+  `${BASEDOCUMENT}photos/top.jpg`,
+  ...Array.from({ length: TOTAL_NUMBERED_PHOTOS }, (_, i) => `${BASEDOCUMENT}photos/${i + 1}.jpg`)
 ];
 
 // --- 视觉配置 ---
